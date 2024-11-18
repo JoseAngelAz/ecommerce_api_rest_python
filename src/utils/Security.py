@@ -1,3 +1,4 @@
+"""Sera usado en AuthRoutes"""
 from decouple import config
 
 import datetime
@@ -20,12 +21,12 @@ class Security():
             payload = {
                     'iat': datetime.datetime.now(tz=cls.tz),
                     'exp': datetime.datetime.now(tz=cls.tz) + datetime.timedelta(minutes=10),
-                    'nombre': authenticated_user.nombre,
                     'correo': authenticated_user.correo,
                     'contrasena':authenticated_user.contrasena,
                     'roles':['Administrator', 'Editor']
             }
             #retorna token con payload, llave secreta y el tipo de algoritmo a aplicar en el token
+            print(payload)
             return jwt.encode(payload, cls.secret, algorithm="HS256")
         except Exception as e:
             Logger.add_to_log("error", str(e))

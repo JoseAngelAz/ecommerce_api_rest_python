@@ -11,15 +11,16 @@ from src.services.AuthService import AuthService
 
 main = Blueprint('auth_blueprint', __name__)
 
+#endpint para autenticar 
 @main.route('/', methods=['POST'])
 def login():
     try:
-        nombre = request.json['nombre']
-        contrasena = request.json['contrasena']
+#hacemos la comprobacion mandando un correo y una contrasena por medio de un json
         correo = request.json['correo']
+        contrasena = request.json['contrasena']
 
 
-        _user = Usuarios(0, nombre, contrasena, correo)
+        _user = Usuarios(0,None, correo, contrasena)
         authenticated_user = AuthService.login_user(_user)
 
         if authenticated_user != None:

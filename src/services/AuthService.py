@@ -1,3 +1,4 @@
+"""ESTA CLASE SERA USADA EN AuthRoutes"""
 import traceback
 
 from pymysql import Connection
@@ -7,7 +8,7 @@ from src.database.db_mysql import get_connection
 #Logger
 from src.utils.Logger import Logger
 #Models
-from src.models.UserModel import User
+from src.models.UsuariosModel import Usuarios
 
 class AuthService():
 
@@ -17,10 +18,10 @@ class AuthService():
             connection = get_connection()
             authenticated_user = None
             with connection.cursor() as cursor:
-                cursor.execute('sp_verifyUsuario(%s, %s)', (user.correo, user.contrasena))
+                cursor.execute('pa_identificar_usuario(%s, %s)', (user.correo, user.contrasena))
                 row = cursor.fetchone()
                 if row != None:
-                    authenticated_user = User(int(row[0]), row[1], row[2], row[3])
+                    authenticated_user = Usuarios(int(row[0]), row[1], row[2], row[3])
             connection.close()
             return authenticated_user
         except Exception as e:
