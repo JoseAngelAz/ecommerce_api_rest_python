@@ -14,7 +14,7 @@ class ProductosService():
             connection = get_connection()
             productos = []
             with connection.cursor() as cursor:
-                cursor.execute('SELECT * FROM Productos')
+                cursor.execute('call consultar_pedidos()')
                 resultset = cursor.fetchall()
                 for row in resultset:
                     producto = Productos(int(row[0]),row[1],row[2],float(row[3]),int(row[4]),int(row[5]))

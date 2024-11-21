@@ -128,7 +128,7 @@ DELIMITER $$
 
 CREATE PROCEDURE pa_identificar_usuario_v2 (IN pCorreo VARCHAR(100), IN pContrasena VARCHAR(255))
 BEGIN
-    SELECT usuario_id, nombre, correo, contrasena
+    SELECT usuario_id, nombre, correo, contrasena, fecha_registro
     FROM Usuarios USUARIOS
     WHERE 1 = 1
     AND USUARIOS.correo = pCorreo 

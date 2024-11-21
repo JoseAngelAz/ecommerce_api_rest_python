@@ -586,3 +586,915 @@ TypeError: Object of type bytes is not JSON serializable
     raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
 TypeError: Object of type bytes is not JSON serializable
 
+2024-11-20 21:19:46 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 21:19:46 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios,'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 21:25:40 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 21:25:40 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios,'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 21:33:29 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 21:33:29 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios,'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 22:09:44 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 22:09:44 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios,'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 22:27:32 | ERROR | Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+2024-11-20 22:27:32 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/AuthRoutes.py", line 25, in login
+    _user = Usuarios(0,None, correo, contrasena)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+
+2024-11-20 22:30:18 | ERROR | Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+2024-11-20 22:30:18 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/AuthRoutes.py", line 25, in login
+    _user = Usuarios(0,None, correo, contrasena)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+
+2024-11-20 22:36:43 | ERROR | Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+2024-11-20 22:36:43 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/AuthRoutes.py", line 25, in login
+    _user = Usuarios(0,None, correo, contrasena)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+
+2024-11-20 22:36:52 | ERROR | 400 Bad Request: Failed to decode JSON object: Expecting value: line 3 column 17 (char 55)
+2024-11-20 22:36:52 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/werkzeug/wrappers/request.py", line 611, in get_json
+    rv = self.json_module.loads(data)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 187, in loads
+    return json.loads(s, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 346, in loads
+    return _default_decoder.decode(s)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/decoder.py", line 337, in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/decoder.py", line 355, in raw_decode
+    raise JSONDecodeError("Expecting value", s, err.value) from None
+json.decoder.JSONDecodeError: Expecting value: line 3 column 17 (char 55)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/AuthRoutes.py", line 19, in login
+    correo = request.json['correo']
+             ^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/werkzeug/wrappers/request.py", line 560, in json
+    return self.get_json()
+           ^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/werkzeug/wrappers/request.py", line 620, in get_json
+    rv = self.on_json_loading_failed(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/wrappers.py", line 214, in on_json_loading_failed
+    return super().on_json_loading_failed(e)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/werkzeug/wrappers/request.py", line 645, in on_json_loading_failed
+    raise BadRequest(f"Failed to decode JSON object: {e}")
+werkzeug.exceptions.BadRequest: 400 Bad Request: Failed to decode JSON object: Expecting value: line 3 column 17 (char 55)
+
+2024-11-20 22:37:01 | ERROR | Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+2024-11-20 22:37:01 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/AuthRoutes.py", line 25, in login
+    _user = Usuarios(0,None, correo, contrasena)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+
+2024-11-20 22:37:47 | ERROR | Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+2024-11-20 22:37:47 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/AuthRoutes.py", line 25, in login
+    _user = Usuarios(0,None, correo, contrasena)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+
+2024-11-21 00:28:08 | ERROR | Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+2024-11-21 00:28:08 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/AuthRoutes.py", line 25, in login
+    _user = Usuarios(0,None, correo, contrasena)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+
+2024-11-21 00:28:28 | ERROR | Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+2024-11-21 00:28:28 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/AuthRoutes.py", line 25, in login
+    _user = Usuarios(0,None, correo, contrasena)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+
+2024-11-21 00:57:57 | ERROR | Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+2024-11-21 00:57:57 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/AuthRoutes.py", line 25, in login
+    _user = Usuarios(0,None, correo, contrasena)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+
+2024-11-21 01:01:22 | ERROR | Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+2024-11-21 01:01:22 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/AuthRoutes.py", line 25, in login
+    _user = Usuarios(0,None, correo, contrasena)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+
+2024-11-21 01:02:15 | ERROR | Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+2024-11-21 01:02:15 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/AuthRoutes.py", line 25, in login
+    _user = Usuarios(0,None, correo, contrasena)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+
+2024-11-21 01:05:16 | ERROR | Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+2024-11-21 01:05:16 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/AuthRoutes.py", line 25, in login
+    _user = Usuarios(0,None, correo, contrasena)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() missing 1 required positional argument: 'fecha_registro'
+
+2024-11-21 01:06:48 | ERROR | Object of type bytes is not JSON serializable
+2024-11-21 01:06:48 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 30, in generate_token
+    return jwt.encode(payload, cls.secret, algorithm="HS256")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 68, in encode
+    json_payload = self._encode_payload(
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 95, in _encode_payload
+    return json.dumps(
+           ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-21 01:10:38 | ERROR | Object of type bytes is not JSON serializable
+2024-11-21 01:10:38 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 29, in generate_token
+    token =  jwt.encode(payload, cls.secret, algorithm="HS256")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 68, in encode
+    json_payload = self._encode_payload(
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 95, in _encode_payload
+    return json.dumps(
+           ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-21 01:11:54 | ERROR | Object of type bytes is not JSON serializable
+2024-11-21 01:11:54 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 29, in generate_token
+    token =  jwt.encode(payload, cls.secret, algorithm="HS256")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 68, in encode
+    json_payload = self._encode_payload(
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 95, in _encode_payload
+    return json.dumps(
+           ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-21 01:16:34 | ERROR | Object of type bytes is not JSON serializable
+2024-11-21 01:16:34 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 29, in generate_token
+    token =  jwt.encode(payload, cls.secret, algorithm="HS256")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 68, in encode
+    json_payload = self._encode_payload(
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 95, in _encode_payload
+    return json.dumps(
+           ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-21 01:21:08 | ERROR | Object of type bytes is not JSON serializable
+2024-11-21 01:21:08 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 29, in generate_token
+    token =  jwt.encode(payload, cls.secret, algorithm="HS256")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 68, in encode
+    json_payload = self._encode_payload(
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 95, in _encode_payload
+    return json.dumps(
+           ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-21 01:25:40 | ERROR | 'Usuarios' object is not subscriptable
+2024-11-21 01:25:40 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/AuthService.py", line 35, in login_user
+    print("El usuario autenticado: ",authenticated_user[0])
+                                     ~~~~~~~~~~~~~~~~~~^^^
+TypeError: 'Usuarios' object is not subscriptable
+
+2024-11-21 01:28:28 | ERROR | Object of type bytes is not JSON serializable
+2024-11-21 01:28:28 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 29, in generate_token
+    token =  jwt.encode(payload, cls.secret, algorithm="HS256")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 68, in encode
+    json_payload = self._encode_payload(
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 95, in _encode_payload
+    return json.dumps(
+           ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 200, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 258, in iterencode
+    return _iterencode(o, 0)
+           ^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 180, in default
+    raise TypeError(f'Object of type {o.__class__.__name__} '
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-21 01:39:03 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:39:03 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 39, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:39:18 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:39:18 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 39, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:41:23 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:41:23 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 39, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:43:55 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:43:55 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:44:59 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:44:59 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:46:36 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:46:36 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:47:13 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:47:13 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:47:44 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:47:44 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:48:06 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:48:06 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:48:38 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:48:38 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:49:10 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:49:10 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:54:04 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:54:04 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:56:57 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:56:57 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 01:59:56 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 01:59:56 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 02:00:33 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 02:00:33 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 02:03:09 | ERROR | 'EnvironHeaders' object has no attribute 'Keys'
+2024-11-21 02:03:09 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 40, in verify_token
+    if 'Authorization' in headers.Keys():
+                          ^^^^^^^^^^^^
+AttributeError: 'EnvironHeaders' object has no attribute 'Keys'
+
+2024-11-21 02:15:01 | ERROR | list index out of range
+2024-11-21 02:15:01 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 43, in verify_token
+    encoded_token = authorization.split(" ")[2]
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+2024-11-21 02:16:26 | ERROR | list index out of range
+2024-11-21 02:16:26 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 43, in verify_token
+    encoded_token = authorization.split(" ")[2]
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+2024-11-21 02:16:59 | ERROR | list index out of range
+2024-11-21 02:16:59 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 43, in verify_token
+    encoded_token = authorization.split(" ")[2]
+                    ~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+2024-11-21 02:20:49 | ERROR | list index out of range
+2024-11-21 02:20:49 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 44, in verify_token
+    print("TOKEN CODIFICADO:\n",encoded_token.split(" ")[1])
+                                ~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+2024-11-21 02:21:01 | ERROR | list index out of range
+2024-11-21 02:21:01 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 44, in verify_token
+    print("TOKEN CODIFICADO:\n",encoded_token.split(" ")[2])
+                                ~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+
+2024-11-21 02:24:46 | ERROR | count() takes at least 1 argument (0 given)
+2024-11-21 02:24:46 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 45, in verify_token
+    print(encoded_token.count())
+          ^^^^^^^^^^^^^^^^^^^^^
+TypeError: count() takes at least 1 argument (0 given)
+
+2024-11-21 02:25:14 | ERROR | count() takes at least 1 argument (0 given)
+2024-11-21 02:25:14 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 45, in verify_token
+    print("CONTEO DEL TOKEN",encoded_token.count())
+                             ^^^^^^^^^^^^^^^^^^^^^
+TypeError: count() takes at least 1 argument (0 given)
+
+2024-11-21 02:33:21 | ERROR | Signature has expired
+2024-11-21 02:33:21 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 48, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:34:48 | ERROR | Signature has expired
+2024-11-21 02:34:48 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 49, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:40:10 | ERROR | Signature has expired
+2024-11-21 02:40:10 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 49, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:40:45 | ERROR | Signature has expired
+2024-11-21 02:40:45 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 49, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:41:42 | ERROR | Signature has expired
+2024-11-21 02:41:42 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 49, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:43:53 | ERROR | Signature has expired
+2024-11-21 02:43:53 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 50, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:44:27 | ERROR | Signature has expired
+2024-11-21 02:44:27 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 50, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:45:44 | ERROR | Signature has expired
+2024-11-21 02:45:44 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 50, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:46:22 | ERROR | Signature has expired
+2024-11-21 02:46:22 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 50, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:47:43 | ERROR | Signature has expired
+2024-11-21 02:47:44 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 49, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:48:55 | ERROR | Signature has expired
+2024-11-21 02:48:55 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 49, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:49:23 | ERROR | Signature has expired
+2024-11-21 02:49:23 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 49, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:51:08 | ERROR | Signature has expired
+2024-11-21 02:51:08 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 49, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:55:26 | ERROR | Signature has expired
+2024-11-21 02:55:26 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 48, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:56:36 | ERROR | Signature has expired
+2024-11-21 02:56:36 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 48, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 02:58:17 | ERROR | Signature has expired
+2024-11-21 02:58:17 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 46, in verify_token
+    payl = payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 03:00:12 | ERROR | Signature has expired
+2024-11-21 03:00:12 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 46, in verify_token
+    payl =  payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 03:01:56 | ERROR | Signature has expired
+2024-11-21 03:01:56 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 44, in verify_token
+    payl =  payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 03:02:55 | ERROR | Signature has expired
+2024-11-21 03:02:55 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 44, in verify_token
+    payl =  payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 211, in decode
+    decoded = self.decode_complete(
+              ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 163, in decode_complete
+    self._validate_claims(
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 249, in _validate_claims
+    self._validate_exp(payload, now, leeway)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/jwt/api_jwt.py", line 307, in _validate_exp
+    raise ExpiredSignatureError("Signature has expired")
+jwt.exceptions.ExpiredSignatureError: Signature has expired
+
+2024-11-21 03:04:58 | ERROR | cannot access local variable 'payload' where it is not associated with a value
+2024-11-21 03:04:58 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/utils/Security.py", line 43, in verify_token
+    print(encoded_token, payload)
+                         ^^^^^^^
+UnboundLocalError: cannot access local variable 'payload' where it is not associated with a value
+
+2024-11-21 12:23:39 | ERROR | Object of type bytes is not JSON serializable
+2024-11-21 12:23:39 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios,'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
