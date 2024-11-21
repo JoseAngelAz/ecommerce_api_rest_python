@@ -126,9 +126,9 @@ INSERT INTO Detalles_Pedido (pedido_id, producto_id, cantidad, precio_unitario) 
 -- PROCEDIMIENTO ALMACENADO DE PRUEBA PARA CONFIRMAR USUARIO
 DELIMITER $$
 
-CREATE PROCEDURE pa_identificar_usuario (IN pCorreo VARCHAR(100), IN pContrasena VARCHAR(255))
+CREATE PROCEDURE pa_identificar_usuario_v2 (IN pCorreo VARCHAR(100), IN pContrasena VARCHAR(255))
 BEGIN
-    SELECT usuario_id, nombre, correo, fecha_registro
+    SELECT usuario_id, nombre, correo, contrasena
     FROM Usuarios USUARIOS
     WHERE 1 = 1
     AND USUARIOS.correo = pCorreo 

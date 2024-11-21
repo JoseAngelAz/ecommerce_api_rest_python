@@ -14,7 +14,7 @@ class Logger():
         file_handler = logging.FileHandler(log_path,encoding='utf-8')
         file_handler.setLevel(logging.DEBUG)
 
-        formatter = logging.Formatter('%(ascAtime)s | %(levelname)s | %(message)s |', "%Y-%m-%d %H:%M:%S")
+        formatter = logging.Formatter('%(asctime)s | %(levelname)s | %(message)s', "%Y-%m-%d %H:%M:%S")
         file_handler.setFormatter(formatter)
 
         if (logger.hasHandlers()):

@@ -1,0 +1,588 @@
+2024-11-20 00:54:45 | ERROR | 'NoneType' object has no attribute 'cursor'
+2024-11-20 00:54:45 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 16, in conseguir_usuarios
+    with connection.cursor() as cursor:
+         ^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-11-20 00:54:45 | ERROR | object of type 'NoneType' has no len()
+2024-11-20 00:54:45 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 21, in conseguir_usuarios
+    if (len(usuarios)>0):
+        ^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2024-11-20 00:56:22 | ERROR | 'NoneType' object has no attribute 'cursor'
+2024-11-20 00:56:22 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 16, in conseguir_usuarios
+    with connection.cursor() as cursor:
+         ^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-11-20 00:56:22 | ERROR | object of type 'NoneType' has no len()
+2024-11-20 00:56:22 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 21, in conseguir_usuarios
+    if (len(usuarios)>0):
+        ^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2024-11-20 00:57:20 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 00:57:20 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 22, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios, 'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 00:58:59 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 00:58:59 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 23, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios, 'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 01:00:30 | ERROR | name 'usuq' is not defined
+2024-11-20 01:00:30 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 22, in conseguir_usuarios
+    print('la longitud del usuario es: ', len(usuarios))
+                                              ^^^^
+NameError: name 'usuq' is not defined
+
+2024-11-20 01:04:23 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 01:04:23 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 24, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios, 'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 01:05:55 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 01:05:55 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios, 'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 01:09:23 | ERROR | 'datetime.datetime' object cannot be interpreted as an integer
+2024-11-20 01:09:23 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 21, in conseguir_usuarios
+    usuario = Usuarios(int(row[0]), row[1], row[2], row[3],datetime(row[4]))
+                                                           ^^^^^^^^^^^^^^^^
+TypeError: 'datetime.datetime' object cannot be interpreted as an integer
+
+2024-11-20 01:09:23 | ERROR | object of type 'NoneType' has no len()
+2024-11-20 01:09:23 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 22, in conseguir_usuarios
+    print('la longitud del usuario es: ', len(usuarios))
+                                          ^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2024-11-20 01:10:28 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 01:10:28 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios, 'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 01:25:15 | ERROR | 'tuple' object is not callable
+2024-11-20 01:25:15 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 21, in conseguir_usuarios
+    usuario = Usuarios(int(row[0]), row[1], row[2], row[3],str(row(4)))
+                                                               ^^^^^^
+TypeError: 'tuple' object is not callable
+
+2024-11-20 01:25:15 | ERROR | object of type 'NoneType' has no len()
+2024-11-20 01:25:15 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 22, in conseguir_usuarios
+    print('la longitud del usuario es: ', len(usuarios))
+                                          ^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2024-11-20 01:26:41 | ERROR | 'datetime.datetime' object cannot be interpreted as an integer
+2024-11-20 01:26:41 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 21, in conseguir_usuarios
+    usuario = Usuarios(int(row[0]), row[1], row[2], row[3],datetime.fromtimestamp(row[4]))
+                                                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'datetime.datetime' object cannot be interpreted as an integer
+
+2024-11-20 01:26:41 | ERROR | object of type 'NoneType' has no len()
+2024-11-20 01:26:41 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 22, in conseguir_usuarios
+    print('la longitud del usuario es: ', len(usuarios))
+                                          ^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2024-11-20 01:27:17 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 01:27:17 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios, 'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 17:46:16 | ERROR | Usuarios.__init__() takes 5 positional arguments but 6 were given
+2024-11-20 17:46:16 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 23, in conseguir_usuarios
+    usuario = Usuarios(int(row[0]), row[1], row[2], row[3], fecha_registro)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() takes 5 positional arguments but 6 were given
+
+2024-11-20 17:46:16 | ERROR | object of type 'NoneType' has no len()
+2024-11-20 17:46:16 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 22, in conseguir_usuarios
+    print('la longitud del usuario es: ', len(usuarios))
+                                          ^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2024-11-20 17:51:47 | ERROR | Usuarios.__init__() takes 5 positional arguments but 6 were given
+2024-11-20 17:51:47 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 23, in conseguir_usuarios
+    usuario = Usuarios(int(row[0]), row[1], row[2], row[3], fecha_registro)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() takes 5 positional arguments but 6 were given
+
+2024-11-20 17:51:47 | ERROR | object of type 'NoneType' has no len()
+2024-11-20 17:51:47 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 22, in conseguir_usuarios
+    print('la longitud del usuario es: ', len(usuarios))
+                                          ^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2024-11-20 17:52:41 | ERROR | Usuarios.__init__() takes 5 positional arguments but 6 were given
+2024-11-20 17:52:41 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 23, in conseguir_usuarios
+    usuario = Usuarios(int(row[0]), row[1], row[2], row[3], fecha_registro)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() takes 5 positional arguments but 6 were given
+
+2024-11-20 17:52:41 | ERROR | object of type 'NoneType' has no len()
+2024-11-20 17:52:41 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 22, in conseguir_usuarios
+    print('la longitud del usuario es: ', len(usuarios))
+                                          ^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2024-11-20 17:54:26 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 17:54:26 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios, 'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 17:55:11 | ERROR | Usuarios.__init__() takes 5 positional arguments but 6 were given
+2024-11-20 17:55:11 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 23, in conseguir_usuarios
+    usuario = Usuarios(int(row[0]), row[1], row[2], row[3],fecha_registro)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Usuarios.__init__() takes 5 positional arguments but 6 were given
+
+2024-11-20 17:55:11 | ERROR | object of type 'NoneType' has no len()
+2024-11-20 17:55:11 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 22, in conseguir_usuarios
+    print('la longitud del usuario es: ', len(usuarios))
+                                          ^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2024-11-20 17:55:43 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 17:55:43 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios, 'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 17:58:53 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 17:58:53 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios, 'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 18:04:05 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 18:04:05 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios,'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 18:04:52 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 18:04:52 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios,'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 18:06:47 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 18:06:47 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios,'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-20 18:07:49 | ERROR | Object of type bytes is not JSON serializable
+2024-11-20 18:07:49 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios,'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
