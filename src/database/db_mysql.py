@@ -8,7 +8,7 @@ def get_connection():
                 host=config('MYSQL_HOST'),
                 user=config('MYSQL_USER'),
                 password=config('MYSQL_PASSWORD'),
-                db='ecommerce_v2'
+                db=config'MYSQL_DB'
                 )
     except Exception as e:
         print(e)
