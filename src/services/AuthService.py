@@ -20,7 +20,7 @@ class AuthService():
 #del metodo cursor lo renombramos como cursor para usarlo despues
             with connection.cursor() as cursor:
 #ejecutamos la sentencia sql embebida o un procedimiento almacenado en este caso y le pasamos los params que pide el PROCALMACENADO
-#POR ALGUNA RAZON QUE DESCONOZCO NO FUNCIONA EL PROCEDIMIENTO ALMACENADO
+#Procedimiento almacenado funcionando bien.
                 cursor.execute('call verificar_usuario(%s, %s)', (user.correo, user.contrasena))
 #guardamos en var row lo que cursor encontro de un registro
                 row = cursor.fetchone()
