@@ -41,12 +41,14 @@ class Security():
             if 'Authorization' in headers.keys():
                 authorization = headers['Authorization']
                 encoded_token = authorization.split(" ")[1]
-                print(encoded_token)
+                print("Estamos dentro del primer if para ver si trae el header Authorization",encoded_token)
                 #and (encoded_token.count('.') == 2))
                 if (len(encoded_token) > 0  ):
-                    print("pasasmos el if de len(encoded_token)>0")
+                    print("pasasmos el if de len(encoded_token)> 0 hay que ver si pasamos al try: ")
                     try:
+                        print("ESTAMOS DENTRO DEL TRY debajo de la validacion > 0 :")
                         payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
+                        print("este es el payload: " ,payload)
                         roles = list(payload['roles'])
                         if 'Administrator' in roles:
                             return True

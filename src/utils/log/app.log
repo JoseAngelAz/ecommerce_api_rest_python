@@ -1558,3 +1558,190 @@ pymysql.err.DataError: (1406, "Data too long for column 'pCorreo' at row 1")
     raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
 TypeError: Object of type bytes is not JSON serializable
 
+2024-11-21 14:48:38 | ERROR | (1406, "Data too long for column 'pCorreo' at row 1")
+2024-11-21 14:48:38 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/AuthService.py", line 24, in login_user
+    cursor.execute('call verificar_usuario(%s, %s)', (user.correo, user.contrasena))
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.DataError: (1406, "Data too long for column 'pCorreo' at row 1")
+
+2024-11-21 14:50:26 | ERROR | (1406, "Data too long for column 'pCorreo' at row 1")
+2024-11-21 14:50:26 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/AuthService.py", line 24, in login_user
+    cursor.execute('call verificar_usuario(%s, %s)', (user.correo, user.contrasena))
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.DataError: (1406, "Data too long for column 'pCorreo' at row 1")
+
+2024-11-21 14:50:49 | ERROR | Object of type bytes is not JSON serializable
+2024-11-21 14:50:49 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios,'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-21 17:57:03 | ERROR | (1406, "Data too long for column 'pCorreo' at row 1")
+2024-11-21 17:57:03 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/AuthService.py", line 24, in login_user
+    cursor.execute('call verificar_usuario(%s, %s)', (user.correo, user.contrasena))
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/cursors.py", line 153, in execute
+    result = self._query(query)
+             ^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/connections.py", line 563, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/connections.py", line 825, in _read_query_result
+    result.read()
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/connections.py", line 1199, in read
+    first_packet = self.connection._read_packet()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/connections.py", line 775, in _read_packet
+    packet.raise_for_error()
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/protocol.py", line 219, in raise_for_error
+    err.raise_mysql_exception(self._data)
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/pymysql/err.py", line 150, in raise_mysql_exception
+    raise errorclass(errno, errval)
+pymysql.err.DataError: (1406, "Data too long for column 'pCorreo' at row 1")
+
+2024-11-21 18:02:49 | ERROR | Object of type bytes is not JSON serializable
+2024-11-21 18:02:49 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UserRoutes.py", line 25, in conseguir_usuarios
+    return jsonify({'usuarios': usuarios,'message':"EXITO",'success':True})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/__init__.py", line 170, in jsonify
+    return current_app.json.response(*args, **kwargs)  # type: ignore[return-value]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 214, in response
+    f"{self.dumps(obj, **dump_args)}\n", mimetype=self.mimetype
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 179, in dumps
+    return json.dumps(obj, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/usr/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 326, in _iterencode_list
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/usr/lib/python3.11/json/encoder.py", line 439, in _iterencode
+    o = _default(o)
+        ^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/.api_venv/lib/python3.11/site-packages/flask/json/provider.py", line 121, in _default
+    raise TypeError(f"Object of type {type(o).__name__} is not JSON serializable")
+TypeError: Object of type bytes is not JSON serializable
+
+2024-11-21 18:04:27 | ERROR | could not convert string to float: 'pendiente'
+2024-11-21 18:04:27 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/ProductosService.py", line 20, in conseguir_productos
+    producto = Productos(int(row[0]),row[1],row[2],float(row[3]),int(row[4]),int(row[5]))
+                                                   ^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'pendiente'
+
+2024-11-21 18:04:27 | ERROR | object of type 'NoneType' has no len()
+2024-11-21 18:04:27 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/ProductosRoutes.py", line 20, in conseguir_productos
+    if (len(productos)>0):
+        ^^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2024-11-21 18:06:11 | ERROR | could not convert string to float: 'pendiente'
+2024-11-21 18:06:11 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/ProductosService.py", line 20, in conseguir_productos
+    producto = Productos(int(row[0]),row[1],row[2],float(row[3]),int(row[4]),int(row[5]))
+                                                   ^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'pendiente'
+
+2024-11-21 18:06:11 | ERROR | object of type 'NoneType' has no len()
+2024-11-21 18:06:11 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/ProductosRoutes.py", line 20, in conseguir_productos
+    if (len(productos)>0):
+        ^^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
+2024-11-21 18:07:49 | ERROR | could not convert string to float: 'pendiente'
+2024-11-21 18:07:49 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/ProductosService.py", line 20, in conseguir_productos
+    producto = Productos(int(row[0]),row[1],row[2],float(row[3]),int(row[4]),int(row[5]))
+                                                   ^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'pendiente'
+
+2024-11-21 18:07:49 | ERROR | object of type 'NoneType' has no len()
+2024-11-21 18:07:49 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/ProductosRoutes.py", line 20, in conseguir_productos
+    if (len(productos)>0):
+        ^^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+

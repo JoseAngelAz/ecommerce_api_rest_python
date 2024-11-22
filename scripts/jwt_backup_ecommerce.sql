@@ -48,48 +48,6 @@ CREATE TABLE Detalles_Pedido (
     FOREIGN KEY (producto_id) REFERENCES Productos(producto_id)
 );
 
----- PROCEDIMIENTOS ALMACENADOS
-
-DELIMITER $$
-
--- Procedimiento para agregar un usuario
-CREATE PROCEDURE sp_addUsuario (IN pNombre VARCHAR(100), IN pCorreo VARCHAR(100), IN pContrasena VARCHAR(255))
-BEGIN
-    INSERT INTO Usuarios (nombre, correo, contrasena)
-    VALUES (pNombre, pCorreo, AES_ENCRYPT(pContrasena, SHA2('B!1w8*NAt1T^%kvhUI*S^_', 512)));
-END$$
-
-
--- Procedimiento para verificar la identidad de un usuario
--- pide CORREO Y CONTRASENA
-CREATE PROCEDURE sp_verifyUsuario (IN pCorreo VARCHAR(100), IN pContrasena VARCHAR(255))
-BEGIN
-    SELECT usuario_id, nombre, correo, fecha_registro
-    FROM Usuarios USUARIOS
-    WHERE 1 = 1
-    AND USUARIOS.correo = pCorreo 
-      AND CAST(AES_DECRYPT(USUARIOS.contrasena, SHA2('B!1w8*NAt1T^%kvhUI*S^_', 512)) AS CHAR(255)) = pContrasena;
-END$$
-
--- Procedimiento para listar categorías
-CREATE PROCEDURE sp_listCategorias()
-BEGIN
-    SELECT categoria_id, nombre, descripcion 
-    FROM Categorias 
-    ORDER BY nombre ASC;
-END$$
-
--- Procedimiento para listar Usuarios
-CREATE PROCEDURE sp_listUsuarios()
-BEGIN
-    SELECT * FROM Usuarios;
-END$$
-
-
-DELIMITER ;
------ FIN DE PROCEDIMIENTOS
-
--- Volcado de datos
 
 -- Insertar en Categorias
 INSERT INTO Categorias (nombre, descripcion) VALUES
@@ -123,16 +81,55 @@ INSERT INTO Detalles_Pedido (pedido_id, producto_id, cantidad, precio_unitario) 
 (2, 2, 1, 29.99);
 
 ---------------------------------------------------------------------------------------
--- PROCEDIMIENTO ALMACENADO DE PRUEBA PARA CONFIRMAR USUARIO
-DELIMITER $$
-
-CREATE PROCEDURE pa_identificar_usuario_v2 (IN pCorreo VARCHAR(100), IN pContrasena VARCHAR(255))
+DELIMITER //
+-- INSERTAR USUARIO CON LA CONTRASENA ENCRIPTADA (funciona)
+CREATE PROCEDURE agregar_usuario (IN pNombre VARCHAR(20), IN pCorreo VARCHAR(20), IN pContrasena VARCHAR(20) )
 BEGIN
-    SELECT usuario_id, nombre, correo, contrasena, fecha_registro
-    FROM Usuarios USUARIOS
-    WHERE 1 = 1
-    AND USUARIOS.correo = pCorreo 
-      AND CAST(AES_DECRYPT(USUARIOS.contrasena, SHA2('B!1w8*NAt1T^%kvhUI*S^_', 512)) AS CHAR(255)) = pContrasena;
-END$$
+    INSERT INTO Usuarios(nombre, correo, contrasena)
+    VALUES (pNombre, pCorreo, AES_ENCRYPT(pContrasena,
+    SHA2('B!1w8*NAt1T^%kvhUI*S^_',512)));
+END //
 
-DELIMITER;
+
+-- VERIFICAR IDENTIDAD DEL USUARIO (si funciona)
+CREATE PROCEDURE verificar_usuario (IN pCorreo VARCHAR(20), IN pContrasena VARCHAR(20))
+BEGIN
+    SELECT *
+    FROM Usuarios 
+    where 1=1
+    AND correo = pCorreo
+    AND CAST(AES_DECRYPT(contrasena,SHA2('B!1w8*NAt1T^%kvhUI*S^_', 512))
+    AS CHAR(30)) = pContrasena;
+END //
+
+-- Metodo para consular todos los usuarios (funciona bien)
+CREATE PROCEDURE consultar_usuarios()
+BEGIN
+    SELECT * FROM Usuarios;
+END //
+
+-- CONSULTAR LAS CATEGORIAS
+CREATE PROCEDURE consultar_categorias ()
+BEGIN
+    SELECT * FROM Categorias;
+END //
+
+-- CONSULTAR DETALLES DE PEDIDOS
+CREATE PROCEDURE consultar_detalles_pedidos ()
+BEGIN
+    SELECT * FROM Detalles_Pedido;
+END //
+
+-- CONSULTAR TODOS LOS PEDIDOS
+CREATE PROCEDURE consultar_pedidos ()
+BEGIN
+    SELECT * FROM Pedidos;
+END //
+
+-- CONSULTAR TODOS LOS PRODUCTOS
+CREATE PROCEDURE consultar_productos ()
+BEGIN
+    SELECT * FROM Productos;
+END //
+
+DELIMITER ;
