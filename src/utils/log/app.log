@@ -1745,3 +1745,24 @@ ValueError: could not convert string to float: 'pendiente'
         ^^^^^^^^^^^^^^
 TypeError: object of type 'NoneType' has no len()
 
+2024-11-21 22:55:49 | ERROR | 'NoneType' object has no attribute 'cursor'
+2024-11-21 22:55:49 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/AuthService.py", line 21, in login_user
+    with connection.cursor() as cursor:
+         ^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'cursor'
+
+2024-11-21 22:57:38 | ERROR | could not convert string to float: 'pendiente'
+2024-11-21 22:57:38 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/ProductosService.py", line 20, in conseguir_productos
+    producto = Productos(int(row[0]),row[1],row[2],float(row[3]),int(row[4]),int(row[5]))
+                                                   ^^^^^^^^^^^^^
+ValueError: could not convert string to float: 'pendiente'
+
+2024-11-21 22:57:38 | ERROR | object of type 'NoneType' has no len()
+2024-11-21 22:57:38 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/ProductosRoutes.py", line 20, in conseguir_productos
+    if (len(productos)>0):
+        ^^^^^^^^^^^^^^
+TypeError: object of type 'NoneType' has no len()
+
