@@ -1,4 +1,5 @@
 """Se conecta a la baes de datos para hacer la verificacion del usuario"""
+from pprint import pprint
 import traceback
 from datetime import datetime
 #databases
@@ -32,7 +33,7 @@ class AuthService():
 # Convertir row[4] (fecha_registro) a formato ISO 8601 o cualquier otro formato
                     fecha_registro = row[4].strftime('%Y-%m-%d %H:%M:%S') if isinstance(row[4], datetime) else None
                     authenticated_user = Usuarios(int(row[0]), row[1], row[2], None, fecha_registro)
-                    print("El usuario autenticado: ",authenticated_user)
+                    print("El usuario autenticado: ",dir(authenticated_user))
 #cerramos la conexion a la base de datos
             connection.close()
 #retornamos la var para usuario autenticado ya inicializada para que se consuma desde donde sea al ejecutarse esta funcion

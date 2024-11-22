@@ -22,7 +22,7 @@ class Security():
                     'iat': datetime.datetime.now(tz=cls.tz),
                     'exp': datetime.datetime.now(tz=cls.tz) + datetime.timedelta(minutes=10),
                     'correo': authenticated_user.correo,
-                    'contrasena':authenticated_user.contrasena,
+                    'nombre':authenticated_user.nombre,
                     'roles':['Administrator', 'Editor']
             }
             #retorna token con payload, llave secreta y el tipo de algoritmo a aplicar en el token
@@ -48,9 +48,10 @@ class Security():
                     try:
                         print("ESTAMOS DENTRO DEL TRY debajo de la validacion > 0 :")
                         payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
-                        print("este es el payload: " ,payload)
+                        print("este es el payload DECODIFICADO: " ,payload)
                         roles = list(payload['roles'])
                         if 'Administrator' in roles:
+                            print("Si Trae ADMINISTRADOR")
                             return True
                         return False
                     except (jwt.ExpiredSignatureError, jwt.InvalidSignatureError):

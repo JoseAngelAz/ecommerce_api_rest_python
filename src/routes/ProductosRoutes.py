@@ -14,6 +14,7 @@ main = Blueprint('productos_blueprint', __name__)
 @main.route('/')
 def conseguir_productos():
     has_access = Security.verify_token(request.headers)
+    print("quiero ver si has_acces viene True: ", has_access) #SI VIENE TRUE
     if has_access:
         try:
             productos = ProductosService.conseguir_productos()
