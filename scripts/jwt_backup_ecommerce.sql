@@ -22,7 +22,7 @@ CREATE TABLE productos (
     precio DECIMAL(10, 2) NOT NULL,
     stock INT NOT NULL,
     categoria_id INT NOT NULL,
-    FOREIGN KEY (categoria_id) REFERENCES Categorias(categoria_id)
+    FOREIGN KEY (categoria_id) REFERENCES categorias(categoria_id)
 );
 
 CREATE TABLE pedidos (
@@ -31,7 +31,7 @@ CREATE TABLE pedidos (
     fecha_pedido TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     estado VARCHAR(50) DEFAULT 'pendiente',
     total DECIMAL(10, 2),
-    FOREIGN KEY (usuario_id) REFERENCES Usuarios(usuario_id)
+    FOREIGN KEY (usuario_id) REFERENCES usuarios(usuario_id)
 );
 
 CREATE TABLE detalles_pedido (
@@ -40,8 +40,8 @@ CREATE TABLE detalles_pedido (
     producto_id INT,
     cantidad INT NOT NULL,
     precio_unitario DECIMAL(10, 2) NOT NULL,
-    FOREIGN KEY (pedido_id) REFERENCES Pedidos(pedido_id),
-    FOREIGN KEY (producto_id) REFERENCES Productos(producto_id)
+    FOREIGN KEY (pedido_id) REFERENCES pedidos(pedido_id),
+    FOREIGN KEY (producto_id) REFERENCES productos(producto_id)
 );
 
 --   -------------------------------------------------------------------------------------
@@ -57,7 +57,7 @@ END //
 
 
 -- VERIFICAR IDENTIDAD DEL USUARIO (si funciona)
-CREATE PROCEDURE verificar_usuario (IN pCorreo VARCHAR(20), IN pContrasena VARCHAR(20))
+CREATE PROCEDURE verificar_usuario (IN pCorreo VARCHAR(50), IN pContrasena VARCHAR(20))
 BEGIN
     SELECT *
     FROM usuarios 
@@ -72,9 +72,10 @@ CREATE PROCEDURE consultar_usuarios()
 BEGIN
     SELECT * FROM usuarios;
 END //
+DELIMITER ;
 
 -- PROCEDIMIENTOS PARA CATEGORIAS
-
+DELIMITER //
 CREATE PROCEDURE agregar_categoria(pNombre VARCHAR(20),pDescripcion VARCHAR(255))
 BEGIN 
   INSERT INTO categorias(nombre,descripcion) VALUES (pNombre,pDescripcion);
@@ -86,8 +87,10 @@ CREATE PROCEDURE consultar_categorias ()
 BEGIN
     SELECT * FROM categorias;
 END //
+DELIMITER ;
 
 -- CONSULTAR DETALLES DE PEDIDOS
+DELIMITER //
 CREATE PROCEDURE agregar_detalles_pedido(
         pPedido_id INT,
         pProducto_id INT,
@@ -112,6 +115,7 @@ CREATE PROCEDURE consultar_detalles_pedido()
 BEGIN
     SELECT * FROM detalles_pedido;
 END //
+DELIMITER ;
 
 -- PROCEDIMIENTOS PARA LOS PEDIDOS
 DELIMITER //
@@ -120,17 +124,16 @@ BEGIN
       INSERT INTO pedidos(usuario_id,estado,total) 
       VALUES (pUsuario_id,pEstado,pTotal);
 END //
-DELIMITER ;
 
 CREATE PROCEDURE consultar_pedidos ()
 BEGIN
     SELECT * FROM pedidos;
 END //
+DELIMITER ;
 
 -- PROCEDIMIENTOS PARA PRODUCTOS
-
+DELIMITER //
 CREATE PROCEDURE agregar_producto (
-pProducto_id INT,
 pNombre VARCHAR(100),
 pDescripcion TEXT,
 pPrecio DECIMAL(10,2),
@@ -138,9 +141,8 @@ pStock INT,
 pCategoria_id INT
 )
 BEGIN
-    INSERT INTO productos (producto_id,nombre,descripcion,precio,stock,categoria_id) 
+    INSERT INTO productos (nombre,descripcion,precio,stock,categoria_id) 
     VALUES (
-      pProducto_id,
       pNombre,
       pDescripcion,
       pPrecio,
@@ -153,8 +155,6 @@ CREATE PROCEDURE consultar_productos ()
 BEGIN
     SELECT * FROM productos;
 END //
-
-
 
 DELIMITER ;
 
@@ -177,6 +177,7 @@ CALL agregar_pedido( 1, 'pendiente', 729.98);
 CALL agregar_pedido( 2, 'completado', 29.99);
 CALL agregar_pedido( 2, 'quien sabe', 29.99);
 
+-- pide: producto_id, producto, cantidad, precio_unitario
 CALL agregar_detalles_pedido( 1, 1, 1, 699.99);
 CALL agregar_detalles_pedido( 1, 2, 1, 29.99);
 CALL agregar_detalles_pedido( 2, 2, 1, 29.99);
