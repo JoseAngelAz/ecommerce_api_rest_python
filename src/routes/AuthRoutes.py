@@ -15,14 +15,13 @@ main = Blueprint('auth_blueprint', __name__)
 @main.route('/', methods=['POST'])
 def login():
     try:
-#hacemos la comprobacion mandando un correo y una contrasena por medio de un json
+#del request de la peticion sacamos correo y contrasena
         correo = request.json['correo']
         contrasena = request.json['contrasena']
-
 #cramos una var _user y la inicializamos con el modelo Usuarios y le pasamos los argumentos q pide
 #le pasamos 0 y None para el id y el nombre pues solo nos interesa ingresar bien el correo y contrasena que vengan
 #del request
-        _user = Usuarios(0,None, correo, contrasena)
+        _user = Usuarios(0,None, correo, contrasena,None)
 #creamos una var authenticated_user y la inicializamos con la respuesta que nos ofrece el metodo del servicio AuthService
 #recordemos que este servicio nos devuelve un objeto usuario autenticado(authenticated_user) pero este a su ves nos pide 
 #el correo y contrasena para devolver el usuario autenticado, por eso le pasamos como parametro _user, que tiene un id 0
@@ -31,7 +30,6 @@ def login():
 #"contrasena":"password"
 
         authenticated_user = AuthService.login_user(_user)
-        print(authenticated_user)
 #comprobamos que el usuario autenticado no este vacio
         if authenticated_user != None:
 #con el metodo generar token de la clase Security creamos el token y lo guardamos en la var ecoded_token
@@ -45,4 +43,4 @@ def login():
     except Exception as ex:
         Logger.add_to_log("error", str(ex))
         Logger.add_to_log("error", traceback.format_exc())
-        return jsonify({'message':"ERROR", 'success':False})
+        return jsonify({'message':"ERROR EN LA AUTORIZACION", 'success':False})

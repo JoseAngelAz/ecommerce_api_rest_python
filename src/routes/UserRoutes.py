@@ -18,9 +18,9 @@ def conseguir_usuarios():
     #if has_access:
         try:
             usuarios = UsuariosService.conseguir_usuarios()
-            print('estamos dentro del try de la llamada al servicio de usuarios')
-            print('la longitud del usuario es: ', len(usuarios))
-            print("Estos son los usuarios: ",usuarios)
+            print('USER_ROUTES: estamos dentro del try de la llamada al servicio de usuarios')
+            print('USER_ROUTES: la longitud del usuario es: ', len(usuarios))
+            print("USER_ROUTES: Estos son los usuarios: ",usuarios)
             if (len(usuarios)>0):
                 return jsonify({'usuarios': usuarios,'message':"EXITO",'success':True})
             else:

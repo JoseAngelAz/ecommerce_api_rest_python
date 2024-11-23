@@ -16,7 +16,7 @@ class PedidosService():
             connection = get_connection()
             pedidos = []
             with connection.cursor() as cursor:
-                cursor.execute('SELECT * FROM Pedidos')
+                cursor.execute('call consultar_pedidos()')
                 resulset = cursor.fetchall()
                 for row in resulset:
                     pedido = Pedidos(int(row[0]),int(row[1]),datetime.datetime(row[2]),row[3],float(row[4]))
