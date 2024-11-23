@@ -8,11 +8,7 @@ def get_connection():
                 host=config('MYSQL_HOST'),
                 user=config('MYSQL_USER'),
                 password=config('MYSQL_PASSWORD'),
-<<<<<<< HEAD
                 db=config'MYSQL_DB'
-=======
-                db=config('MYSQL_DB')
->>>>>>> main
                 )
     except Exception as e:
         print(e)
