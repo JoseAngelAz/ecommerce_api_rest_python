@@ -1,5 +1,5 @@
 import traceback
-
+from datetime import datetime
 #database
 from src.database.db_mysql import get_connection
 #Logger 
@@ -17,7 +17,8 @@ class ProductosService():
                 cursor.execute('call consultar_productos()')
                 resultset = cursor.fetchall()
                 for row in resultset:
-                    producto = Productos(int(row[0]),row[1],row[2],float(row[3]),int(row[4]),int(row[5]))
+                    fecha_registro = row[6].strftime('%Y-%m-%d %H:%M:%S') if isinstance(row[6], datetime) else None
+                    producto = Productos(int(row[0]),row[1],row[2],float(row[3]),int(row[4]),int(row[5]),fecha_registro)
                     productos.append(producto.to_json())
             connection.close()
             return productos

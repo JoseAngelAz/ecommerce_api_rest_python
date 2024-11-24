@@ -18,11 +18,10 @@ class UsuariosService():
                 cursor.execute('call consultar_usuarios()')
                 resultset = cursor.fetchall()
                 for row in resultset:
-                    # Convertir row[4] (fecha_registro) a formato ISO 8601 o cualquier otro formato
-                    fecha_registro = row[4].strftime('%Y-%m-%d %H:%M:%S') if isinstance(row[4], datetime) else None
-                    usuario = Usuarios(int(row[0]), row[1], row[2], row[3],fecha_registro)
+                    # Convertir row[5] (fecha_registro) a formato ISO 8601 o cualquier otro formato
+                    fecha_registro = row[5].strftime('%Y-%m-%d %H:%M:%S') if isinstance(row[5], datetime) else None
+                    usuario = Usuarios(int(row[0]), row[1], row[2], str(row[3]),row[4],fecha_registro)
                     #mostrar en consola los usuarios
-                    #print(usuarios)
                     usuarios.append(usuario.to_json())
             connection.close()
             return usuarios

@@ -23,7 +23,7 @@ class Security():
                     'exp': datetime.datetime.now(tz=cls.tz) + datetime.timedelta(minutes=10),
                     'correo': authenticated_user.correo,
                     'nombre':authenticated_user.nombre,
-                    'roles':['Administrator', 'Editor']
+                    'rol':authenticated_user.rol
             }
             #retorna token con payload, llave secreta y el tipo de algoritmo a aplicar en el token
             token =  jwt.encode(payload, cls.secret, algorithm="HS256")
@@ -49,8 +49,9 @@ class Security():
                         print("ESTAMOS DENTRO DEL TRY debajo de la validacion > 0 :")
                         payload = jwt.decode(encoded_token, cls.secret, algorithms=["HS256"])
                         print("este es el payload DECODIFICADO: " ,payload)
-                        roles = list(payload['roles'])
-                        if 'Administrator' in roles:
+                        rol = payload['rol']
+                        print("ESTE ES EL ROL: ", rol)
+                        if 'Admin' in rol:
                             print("Si Trae ADMINISTRADOR")
                             return True
                         return False

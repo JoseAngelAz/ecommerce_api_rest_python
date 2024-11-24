@@ -12,6 +12,7 @@ CREATE TABLE usuarios (
     nombre VARCHAR(50) NOT NULL,
     correo VARCHAR(50) UNIQUE NOT NULL,
     contrasena BLOB NOT NULL,
+    rol VARCHAR(50) NOT NULL DEFAULT 'Cliente',
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -48,11 +49,16 @@ CREATE TABLE detalles_pedido (
 -- PROCEDIMIENTOS ALMACENADOS PARA AGREGAR Y CONSULTAR
 DELIMITER //
 -- INSERTAR USUARIO CON LA CONTRASENA ENCRIPTADA (funciona)
-CREATE PROCEDURE agregar_usuario (IN pNombre VARCHAR(50), IN pCorreo VARCHAR(50), IN pContrasena VARCHAR(100) )
+CREATE PROCEDURE agregar_usuario (IN pNombre VARCHAR(50), IN pCorreo VARCHAR(50), IN pContrasena VARCHAR(100), IN pRol VARCHAR(50) DEFAULT NULL)
 BEGIN
-    INSERT INTO usuarios(nombre, correo, contrasena)
+-- Si pRol es NULL, asigna un valor predeterminado
+    IF pRol IS NULL THEN
+        SET pRol = 'Cliente'; -- Valor predeterminado, como 'Cliente'
+    END IF;
+-- comienza la insercion
+    INSERT INTO usuarios(nombre, correo, contrasena,rol)
     VALUES (pNombre, pCorreo, AES_ENCRYPT(pContrasena,
-    SHA2('B!1w8*NAt1T^%kvhUI*S^_',512)));
+    SHA2('B!1w8*NAt1T^%kvhUI*S^_',512)),pRol);
 END //
 
 
@@ -163,63 +169,24 @@ DELIMITER ;
 CALL agregar_usuario('Ada Azucena', 'ada.azucena@email.com', 'azucena');
 CALL agregar_usuario('Angel Azucena', 'angel.azucena@example.com', 'azucena');
 CALL agregar_usuario('Maria Luna', 'maria.luna@example.com', 'luna');
-CALL agregar_usuario('Angel', 'angel.luna@example.com', 'azucena');
--- Insertar categorias por el procedimiento almacenado
+CALL agregar_usuario('Angel', 'angel@email.com', 'azucena','Admin');
+-- Insertar categorias por el procedimiento almacenado nombre, descripcion
 CALL agregar_categoria( 'Electrónica', 'Dispositivos electrónicos y gadgets');
 CALL agregar_categoria( 'Ropa', 'Vestimenta y accesorios');
 CALL agregar_categoria( 'Hogar', 'Artículos para el hogar y decoración');
 -- Insertar Productos por el procedimiento almacenado
+-- nombre, descripcion, precio, stock, categoria
 CALL agregar_producto( 'Smartphone', 'Teléfono inteligente de última generación', 699.99, 50, 1);
 CALL agregar_producto( 'Camisa Casual', 'Camisa de algodón de manga larga', 29.99, 100, 2);
 CALL agregar_producto( 'Sofá de 3 plazas', 'Sofá cómodo de tela', 399.99, 20, 3);
-
-CALL agregar_pedido( 1, 'pendiente', 729.98);
+-- insertar pedido usuario_id, estado, total
+CALL agregar_pedido( 1, 'pendiente', 699.99);
 CALL agregar_pedido( 2, 'completado', 29.99);
-CALL agregar_pedido( 2, 'quien sabe', 29.99);
+CALL agregar_pedido( 3, 'quien sabe', 399.99);
 
--- pide: producto_id, producto, cantidad, precio_unitario
+-- pide: pedido_id, producto, cantidad, precio_unitario
 CALL agregar_detalles_pedido( 1, 1, 1, 699.99);
 CALL agregar_detalles_pedido( 1, 2, 1, 29.99);
 CALL agregar_detalles_pedido( 2, 2, 1, 29.99);
 -- ----------------------------------------------------------------------------
-
--- Insertar en Categorias
-/*
-INSERT INTO Categorias (nombre, descripcion) VALUES
-('Electrónica', 'Dispositivos electrónicos y gadgets'),
-('Ropa', 'Vestimenta y accesorios'),
-('Hogar', 'Artículos para el hogar y decoración');
-*/
-
-/*
--- Insertar en Usuarios
-INSERT INTO Usuarios (nombre, correo, contrasena) VALUES
-('Ada Azucena', 'ada.azucena@email.com', 'azucena'),
-('Angel Azucena', 'angel.azucena@example.com', 'azucena'),
-('Maria Luna', 'maria.luna@example.com', 'luna'),
-('Angel', 'angel.luna@example.com', 'azucena');
-*/
-
-
--- Insertar en Productos
-/*
-INSERT INTO Productos (nombre, descripcion, precio, stock, categoria_id) VALUES
-('Smartphone', 'Teléfono inteligente de última generación', 699.99, 50, 1),
-('Camisa Casual', 'Camisa de algodón de manga larga', 29.99, 100, 2),
-('Sofá de 3 plazas', 'Sofá cómodo de tela', 399.99, 20, 3);
-*/
--- Insertar en Pedidos
-/*
-INSERT INTO Pedidos (usuario_id, estado, total) VALUES
-(1, 'pendiente', 729.98),
-(2, 'completado', 29.99);
-*/
--- Insertar en Detalles_Pedido
-/*
-INSERT INTO Detalles_Pedido (pedido_id, producto_id, cantidad, precio_unitario) VALUES
-(1, 1, 1, 699.99),
-(1, 2, 1, 29.99),
-(2, 2, 1, 29.99);
-*/
--- ------------------------------------------------------------------------------
 
