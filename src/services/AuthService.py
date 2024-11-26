@@ -18,7 +18,6 @@ class AuthService():
             with connection.cursor() as cursor:
                 cursor.execute('call consultar_usuario(%s, %s)', (user.correo, user.contrasena))
                 row = cursor.fetchone()
-                print("Este es el ROW de AuthService",row)
                 if row != None:
                     fecha_registro = row[5].strftime('%Y-%m-%d %H:%M:%S') if isinstance(row[5], datetime) else None
                     authenticated_user = Usuarios(int(row[0]), row[1], row[2], None,row[4],fecha_registro)
