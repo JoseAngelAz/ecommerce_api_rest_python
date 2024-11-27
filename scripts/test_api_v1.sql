@@ -12,7 +12,7 @@ CREATE TABLE usuarios (
     nombre VARCHAR(50) NOT NULL,
     correo VARCHAR(50) UNIQUE NOT NULL,
     contrasena VARBINARY(255) NOT NULL, -- Usar VARBINARY para contraseñas encriptadas
-    rol ENUM('Cliente', 'Admin') NOT NULL DEFAULT 'Cliente',
+    rol ENUM('Cliente', 'Admin','Editor') NOT NULL DEFAULT 'Cliente',
     fecha_registro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
@@ -57,7 +57,7 @@ CREATE PROCEDURE agregar_usuario (
     IN pNombre VARCHAR(50),
     IN pCorreo VARCHAR(50),
     IN pContrasena VARCHAR(100),
-    IN pRol VARCHAR(50)
+    IN pRol ENUM('Admin','Cliente','Editor')
 )
 BEGIN
     DECLARE EXIT HANDLER FOR SQLEXCEPTION 
@@ -73,7 +73,7 @@ BEGIN
     END IF;
 
     -- Validación de rol
-    IF pRol NOT IN ('Cliente', 'Admin') THEN
+    IF pRol NOT IN ('Cliente', 'Admin','Editor') THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Rol no válido.';
     END IF;
 
@@ -333,10 +333,10 @@ Los usuarios deben registrarse antes de realizar pedidos. Aquí se incluyen
 tanto clientes como un administrador para validar diferentes roles.
 */
 -- Insertar usuarios
-CALL agregar_usuario('Ada Azucena', 'ada.azucena@email.com', 'azucena',''); -- Cliente
-CALL agregar_usuario('Angel Azucena', 'angel.azucena@example.com', 'azucena',''); -- Cliente
-CALL agregar_usuario('Maria Luna', 'maria.luna@example.com', 'luna','Admin'); -- Cliente
-CALL agregar_usuario('Angel Azucena', 'angel@email.com', 'azucena', 'Admin'); -- Administrador
+CALL agregar_usuario('Ada Azucena', 'ada.azucena@email.com', 'azucena',3); -- Editor
+CALL agregar_usuario('Angel Azucena', 'angel.azucena@example.com', 'azucena',2); -- Cliente
+CALL agregar_usuario('Maria Luna', 'maria.luna@example.com', 'luna',1); -- Cliente
+CALL agregar_usuario('Admin', 'admin@email.com', 'admin', 'Admin'); -- Administrador
 
 /*
 3. Insertar Productos
