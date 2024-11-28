@@ -485,3 +485,15 @@ Exception: El procedimiento no insertó el usuario.
     raise Exception("El procedimiento no insertó el usuario.")
 Exception: El procedimiento no insertó el usuario.
 
+2024-11-28 03:11:09 | ERROR | No se insertó el usuario.
+2024-11-28 03:11:09 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 103, in agregar_usuario
+    raise Exception("No se insertó el usuario.")
+Exception: No se insertó el usuario.
+
+2024-11-28 03:13:53 | ERROR | No se insertó el usuario.
+2024-11-28 03:13:53 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 103, in agregar_usuario
+    raise Exception("No se insertó el usuario.")
+Exception: No se insertó el usuario.
+

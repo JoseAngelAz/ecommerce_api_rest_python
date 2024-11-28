@@ -69,56 +69,55 @@ def consultar_usuario():
         return jsonify({'message': 'Error interno del servidor', 'success': False}), 500
 
 
-#AGREGAR UN USUARIO NUEVO
+#AGREGAR UN USUARIO NUEVO (# LANZA ERROR PERO SI INSERTA)
 @main.route('/agregar_usuario', methods=['POST'])
 def agregar_usuario():
-    print('HEADER DE AGREGAR_USUARIO',request.headers)
+    """
+    Ruta para agregar un nuevo usuario, recibiendo los datos desde el request.
+    """
+    print('HEADER DE AGREGAR_USUARIO', request.headers)
     # Verificar token de autorización
     has_access = Security.verify_token(request.headers)
     if not has_access:
         return jsonify({'message': 'NO AUTORIZADO', 'success': False}), 401
 
     try:
-        print("acabamos de entrar en try de usuariosRoute")
         # Validar si el cuerpo de la solicitud es válido
         if not request.json:
             return jsonify({'message': 'Petición inválida: falta cuerpo JSON', 'success': False}), 400
-        print("pasamos dentro del try del usuariosRoute")
 
-        # Validar y extraer datos del JSON
         datos_usuario = request.json
-        print("datos del usuario insertado: ",datos_usuario)
+        print("datos recibidos en el request: ", datos_usuario)
+
+        # Validar los campos requeridos
         campos_requeridos = ['nombre', 'correo', 'contrasena', 'rol']
         for campo in campos_requeridos:
             if campo not in datos_usuario:
                 return jsonify({'message': f'Falta el campo: {campo}', 'success': False}), 400
-        print("pasamos la validacion de campos del json.request")
-        # Crear instancia del usuario
+
+        # Crear una instancia del usuario
         _new_user = Usuarios(
-            usuario_id=0,
+            usuario_id=0,  # Se genera automáticamente en la base de datos
             nombre=datos_usuario['nombre'],
             correo=datos_usuario['correo'],
-            contrasena=datos_usuario['contrasena'],
+            contrasena=datos_usuario['contrasena'],  # La encriptación ocurre en el procedimiento
             rol=datos_usuario['rol'],
             fecha_registro=None
         )
-        print("Usuario recibido del request en la ruta: ", _new_user)
 
         # Llamar al servicio para agregar el usuario
-        added_user = UsuariosService.agregar_usuario(_new_user)
-        if added_user is not None:
-            return jsonify({'message': 'EXITO', 'success': True, 'usuario': added_user}), 201
+        resultado = UsuariosService.agregar_usuario(_new_user)
+        if resultado is not None:
+            return jsonify({'message': 'Usuario agregado con éxito', 'success': True}), 201
         else:
             return jsonify({'message': 'No se guardó el usuario', 'success': False}), 500
 
-    except KeyError as ex:
-        return jsonify({'message': f'Falta el campo: {str(ex)}', 'success': False}), 400
-
-    except Exception as ex:
-        Logger.add_to_log("error", str(ex))
+    except Exception as e:
+        Logger.add_to_log("error", str(e))
         Logger.add_to_log("error", traceback.format_exc())
         return jsonify({'message': 'Error interno del servidor', 'success': False}), 500
-    
+
+
 #MODIFICAR USUARIO POR ID
 @main.route('/modificar_usuario', methods=['PUT'])
 def modificar_usuario():

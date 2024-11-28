@@ -78,22 +78,34 @@ class UsuariosService:
 #AGREGAR UN USUARIO NUEVO (# LANZA ERROR PERO SI INSERTA EL REGISTRO)
     @classmethod
     def agregar_usuario(cls, user):
+        """
+        Agrega un nuevo usuario a la base de datos.
+        """
         try:
             connection = get_connection()
             if not connection:
                 raise Exception("No se pudo conectar a la base de datos.")
-            
-            #usuario_nuevo = Usuarios(0, user.nombre, user.correo, user.contrasena, user.rol, None)
+
             with connection.cursor() as cursor:
-                print("el user que viene al servicio: ",user)
-                cursor.callproc('agregar_usuario', (user.nombre, user.correo, user.contrasena, user.rol))
-                # Confirmar si el procedimiento tuvo éxito
+                # Llamar al procedimiento almacenado para agregar usuario
+                cursor.callproc(
+                    'agregar_usuario',
+                    (
+                        user.nombre,
+                        user.correo,
+                        user.contrasena,  # En el procedimiento se encripta
+                        user.rol
+                    )
+                )
+
+                # Confirmar si se afectaron filas
                 if cursor.rowcount == 0:
-                    print("el cursor rowcount: ",cursor.rowcount)
-                    raise Exception("El procedimiento no insertó el usuario.")
-            
+                    raise Exception("No se insertó el usuario.")
+
             connection.commit()
-            return {'message': "Usuario Agregado"}
+            print(cursor.rowcount)
+            return {'message': 'Usuario agregado con éxito'}
+
         except Exception as e:
             Logger.add_to_log("error", str(e))
             Logger.add_to_log("error", traceback.format_exc())
@@ -101,6 +113,7 @@ class UsuariosService:
         finally:
             if 'connection' in locals() and connection:
                 connection.close()
+
 
 #MODIFICAR UN USUARIO POR ID (FUNCIONA)
     @classmethod
