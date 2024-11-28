@@ -9,7 +9,7 @@ class Usuarios():
 
     def to_json(self):
         return {
-                'id':self.id,
+                'usuario_id':self.id,
                 'nombre':self.nombre,
                 'correo':self.correo,
                 'contrasena':self.contrasena,

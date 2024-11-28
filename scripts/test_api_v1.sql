@@ -73,7 +73,7 @@ BEGIN
     END IF;
 
     -- Validación de rol
-    IF pRol NOT IN ('Cliente', 'Admin','Editor') THEN
+    IF pRol NOT IN ('Admin', 'Cliente','Editor') THEN
         SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'Rol no válido.';
     END IF;
 
@@ -83,6 +83,7 @@ BEGIN
     END IF;
 
     -- Inserción del usuario
+    -- AES_ENCRYPT(pContrasena, SHA2('B!1w8*NAt1T^%kvhUI*S^_', 512)),
     INSERT INTO usuarios (nombre, correo, contrasena, rol)
     VALUES (
         pNombre,
@@ -90,6 +91,10 @@ BEGIN
         AES_ENCRYPT(pContrasena, SHA2('B!1w8*NAt1T^%kvhUI*S^_', 512)),
         pRol
     );
+    IF ROW_COUNT() = 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'No se insertó el usuario';
+    END IF;
 
     COMMIT;
 END //
@@ -115,6 +120,64 @@ BEGIN
     AS CHAR(100)) = pContrasena;
 
     -- Nota: Si no se encuentra el usuario, simplemente no devuelve resultados.
+END //
+
+DELIMITER ;
+
+-- MODIFICAR usuario por ID
+DELIMITER //
+
+CREATE PROCEDURE modificar_usuario(
+    IN p_usuario_id INT,
+    IN p_nombre VARCHAR(100),
+    IN p_correo VARCHAR(100),
+    IN p_contrasena VARCHAR(255),
+    IN p_rol VARCHAR(50)
+)
+BEGIN
+    DECLARE v_existe_usuario INT;
+
+    -- Verificar si el usuario existe
+    SELECT COUNT(*) INTO v_existe_usuario
+    FROM usuarios
+    WHERE usuario_id = p_usuario_id;
+
+    IF v_existe_usuario = 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'El usuario no existe.';
+    END IF;
+
+    -- Actualizar los datos del usuario
+    UPDATE usuarios
+    SET
+        nombre = p_nombre,
+        correo = p_correo,
+        contrasena = AES_ENCRYPT(p_contrasena, SHA2('B!1w8*NAt1T^%kvhUI*S^_', 512)), -- Encriptar usando AES_ENCRYPT
+        rol = p_rol
+    WHERE usuario_id = p_usuario_id;
+
+    -- Verificar que se haya realizado la actualización
+    IF ROW_COUNT() = 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'No se pudo modificar el usuario. Verifique los datos proporcionados.';
+    END IF;
+END //
+
+DELIMITER ;
+
+
+-- ELIMINAR USUARIO POR ID
+DELIMITER //
+
+CREATE PROCEDURE eliminar_usuario(IN p_usuario_id INT)
+BEGIN
+    DELETE FROM usuarios WHERE usuario_id = p_usuario_id;
+
+    -- Verificar si se eliminó algún registro
+    IF ROW_COUNT() = 0 THEN
+        SIGNAL SQLSTATE '45000'
+        SET MESSAGE_TEXT = 'No se encontró el usuario con el ID proporcionado.';
+    END IF;
 END //
 
 DELIMITER ;

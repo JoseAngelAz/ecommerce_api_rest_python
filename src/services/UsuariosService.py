@@ -10,6 +10,7 @@ from src.models.UsuariosModel import Usuarios
 
 class UsuariosService:
 
+#CONSULTAR TODOS LOS USUARIOS
     @classmethod
     def conseguir_usuarios(cls):
         try:
@@ -34,6 +35,7 @@ class UsuariosService:
             if 'connection' in locals() and connection:
                 connection.close()
 
+#AGREGAR UN USUARIO NUEVO
     @classmethod
     def agregar_usuario(cls, user):
         try:
@@ -41,16 +43,73 @@ class UsuariosService:
             if not connection:
                 raise Exception("No se pudo conectar a la base de datos.")
             
-            usuario_nuevo = Usuarios(0, user.nombre, user.correo, user.contrasena, user.rol, None)
+            #usuario_nuevo = Usuarios(0, user.nombre, user.correo, user.contrasena, user.rol, None)
             with connection.cursor() as cursor:
-                cursor.execute('call agregar_usuario(%s, %s, %s, %s)', 
-                               (user.nombre, user.correo, user.contrasena, user.rol))
+                print("el user que viene al servicio: ",user)
+                cursor.callproc('agregar_usuario', (user.nombre, user.correo, user.contrasena, user.rol))
                 # Confirmar si el procedimiento tuvo éxito
                 if cursor.rowcount == 0:
+                    print("el cursor rowcount: ",cursor.rowcount)
                     raise Exception("El procedimiento no insertó el usuario.")
             
             connection.commit()
-            return {'message': "Usuario Agregado", 'usuario': usuario_nuevo.to_json()}
+            return {'message': "Usuario Agregado"}
+        except Exception as e:
+            Logger.add_to_log("error", str(e))
+            Logger.add_to_log("error", traceback.format_exc())
+            return None
+        finally:
+            if 'connection' in locals() and connection:
+                connection.close()
+
+#MODIFICAR UN USUARIO POR ID
+    @classmethod
+    def modificar_usuario(cls, user):
+        try:
+            print("este es el user que viene del route:", user.to_json())
+            connection = get_connection()
+            if not connection:
+                raise Exception("No se pudo conectar a la base de datos.")
+
+            with connection.cursor() as cursor:
+                cursor.callproc('modificar_usuario', (
+                    user.usuario_id,
+                    user.nombre,
+                    user.correo,
+                    user.contrasena,
+                    user.rol
+                ))
+                # Confirmar si el procedimiento tuvo éxito
+                if cursor.rowcount == 0:
+                    raise Exception("No se modificó el usuario. Verifique el ID proporcionado.")
+            
+            connection.commit()
+            return {'message': "Usuario Modificado"}
+        except Exception as e:
+            Logger.add_to_log("error", str(e))
+            Logger.add_to_log("error", traceback.format_exc())
+            return None
+        finally:
+            if 'connection' in locals() and connection:
+                connection.close()
+
+#ELIMINAR USUARIO POR ID
+    @classmethod
+    def eliminar_usuario(cls, usuario_id):
+        print("Este es el id que viene al servicio", usuario_id)
+        try:
+            connection = get_connection()
+            if not connection:
+                raise Exception("No se pudo conectar a la base de datos.")
+
+            with connection.cursor() as cursor:
+                cursor.callproc('eliminar_usuario', (usuario_id,))
+                # Confirmar si el procedimiento tuvo éxito
+                if cursor.rowcount == 0:
+                    raise Exception("No se encontró el usuario para eliminar o no se eliminó correctamente.")
+            
+            connection.commit()
+            return {'message': "Usuario eliminado"}
         except Exception as e:
             Logger.add_to_log("error", str(e))
             Logger.add_to_log("error", traceback.format_exc())
