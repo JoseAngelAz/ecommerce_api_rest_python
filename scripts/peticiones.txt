@@ -1,10 +1,10 @@
-curl -X PUT http://localhost:5000/usuarios/modificar_usuario \
+curl -X PUT https://localhost:5001/usuarios/modificar_usuario \
 -H "Content-Type: application/json" \
--H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzI2OTU4MzIsImV4cCI6MTczMjY5NjQzMiwiY29ycmVvIjoibWFyaWEubHVuYUBleGFtcGxlLmNvbSIsIm5vbWJyZSI6Ik1hcmlhIEx1bmEiLCJyb2wiOiJBZG1pbiJ9.rwEB-FDSkdQJvllP8VHaDHXl5oiLkH5AE7g7Fzh1kX0" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzI3NzQyMDMsImV4cCI6MTczMjg2MDYwMywiY29ycmVvIjoibWFyaWEubHVuYUBleGFtcGxlLmNvbSIsIm5vbWJyZSI6Ik1hcmlhIEx1bmEiLCJyb2wiOiJBZG1pbiJ9.A4tcwYSNMwkqWQWPlkVMVOurAVdXdPy2eEXu8QRYGKc" \
 -d '{
   "usuario_id": 11,
-  "nombre": "Nuevo Nombre",
-  "correo": "nuevo.correo@example.com",
-  "contrasena": "NuevaContraseñaSegura123",
-  "rol": 1
+  "nombre": "fat",
+  "correo": "fat@email.com",
+  "contrasena": "fat",
+  "rol": 2
 }'

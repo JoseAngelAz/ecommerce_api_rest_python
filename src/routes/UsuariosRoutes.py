@@ -29,6 +29,46 @@ def conseguir_usuarios():
         Logger.add_to_log("error", traceback.format_exc())
         return jsonify({'message': "ERROR", 'success': False}), 500
 
+#AGREGAR USUARIO POR ID
+@main.route('/consultar_usuario_id', methods=['POST'])
+def consultar_usuario():
+    """
+    Ruta para consultar un usuario por ID, recibiendo el ID desde el request.
+    """
+    print('HEADER DE CONSULTAR_USUARIO', request.headers)
+    # Verificar token de autorización
+    has_access = Security.verify_token(request.headers)
+    if not has_access:
+        return jsonify({'message': 'NO AUTORIZADO', 'success': False}), 401
+
+    try:
+        # Validar si el cuerpo de la solicitud es válido
+        if not request.json:
+            return jsonify({'message': 'Petición inválida: falta cuerpo JSON', 'success': False}), 400
+
+        datos_usuario = request.json
+        print("datos recibidos en el request: ", datos_usuario)
+
+        # Validar que el campo usuario_id esté presente
+        if 'usuario_id' not in datos_usuario:
+            return jsonify({'message': 'Falta el campo usuario_id', 'success': False}), 400
+
+        usuario_id = datos_usuario['usuario_id']
+
+        # Llamar al servicio para consultar el usuario
+        usuario = UsuariosService. consultar_usuario_por_id(usuario_id)
+
+        if usuario:
+            return jsonify({'message': 'EXITO', 'success': True, 'usuario': usuario}), 200
+        else:
+            return jsonify({'message': 'Usuario no encontrado', 'success': False}), 404
+
+    except Exception as e:
+        Logger.add_to_log("error", str(e))
+        Logger.add_to_log("error", traceback.format_exc())
+        return jsonify({'message': 'Error interno del servidor', 'success': False}), 500
+
+
 #AGREGAR UN USUARIO NUEVO
 @main.route('/agregar_usuario', methods=['POST'])
 def agregar_usuario():

@@ -10,7 +10,7 @@ from src.models.UsuariosModel import Usuarios
 
 class UsuariosService:
 
-#CONSULTAR TODOS LOS USUARIOS
+#CONSULTAR TODOS LOS USUARIOS (FUNCIONA)
     @classmethod
     def conseguir_usuarios(cls):
         try:
@@ -35,7 +35,47 @@ class UsuariosService:
             if 'connection' in locals() and connection:
                 connection.close()
 
-#AGREGAR UN USUARIO NUEVO
+#CONSULTAR USUARIO POR ID (FUNCIONA)
+    @classmethod
+    def consultar_usuario_por_id(cls, usuario_id):
+        """
+        Consulta un usuario por su ID.
+        """
+        try:
+            connection = get_connection()
+            if not connection:
+                raise Exception("No se pudo conectar a la base de datos.")
+
+            with connection.cursor() as cursor:
+                # Llama al procedimiento almacenado para consultar el usuario por ID
+                cursor.callproc('consultar_usuario_por_id', (usuario_id,))
+                resultset = cursor.fetchone()
+
+                if resultset:
+                    # Construye el modelo de usuario desde los resultados
+                    fecha_registro = resultset[5].strftime('%Y-%m-%d %H:%M:%S') if isinstance(resultset[5], datetime) else None
+                    usuario = Usuarios(
+                        int(resultset[0]),  # usuario_id
+                        resultset[1],       # nombre
+                        resultset[2],       # correo
+                        None,               # contrasena (opcional ocultar en respuestas)
+                        resultset[4],       # rol
+                        fecha_registro      # fecha_registro
+                    )
+                    return usuario.to_json()  # Retorna en formato JSON
+                else:
+                    return None  # Usuario no encontrado
+
+        except Exception as e:
+            Logger.add_to_log("error", str(e))
+            Logger.add_to_log("error", traceback.format_exc())
+            return None
+        finally:
+            if 'connection' in locals() and connection:
+                connection.close()
+
+
+#AGREGAR UN USUARIO NUEVO (# LANZA ERROR PERO SI INSERTA EL REGISTRO)
     @classmethod
     def agregar_usuario(cls, user):
         try:
@@ -62,11 +102,11 @@ class UsuariosService:
             if 'connection' in locals() and connection:
                 connection.close()
 
-#MODIFICAR UN USUARIO POR ID
+#MODIFICAR UN USUARIO POR ID (FUNCIONA)
     @classmethod
     def modificar_usuario(cls, user):
         try:
-            print("este es el user que viene del route:", user.to_json())
+            print("Estamos en el SERVICIO :este es el user que viene del route:", user.to_json())
             connection = get_connection()
             if not connection:
                 raise Exception("No se pudo conectar a la base de datos.")
@@ -93,7 +133,7 @@ class UsuariosService:
             if 'connection' in locals() and connection:
                 connection.close()
 
-#ELIMINAR USUARIO POR ID
+#ELIMINAR USUARIO POR ID (FUNCIONA)
     @classmethod
     def eliminar_usuario(cls, usuario_id):
         print("Este es el id que viene al servicio", usuario_id)

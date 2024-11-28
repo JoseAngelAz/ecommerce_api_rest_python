@@ -428,3 +428,60 @@ Traceback (most recent call last):
     raise DecodeError("Invalid crypto padding") from err
 jwt.exceptions.DecodeError: Invalid crypto padding
 
+2024-11-27 19:57:54 | ERROR | 'Usuarios' object has no attribute 'usuario_id'
+2024-11-27 19:57:54 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 76, in modificar_usuario
+    user.usuario_id,
+    ^^^^^^^^^^^^^^^
+AttributeError: 'Usuarios' object has no attribute 'usuario_id'
+
+2024-11-27 20:02:50 | ERROR | 'Usuarios' object has no attribute 'usuario_id'
+2024-11-27 20:02:50 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 76, in modificar_usuario
+    user.usuario_id,
+    ^^^^^^^^^^^^^^^
+AttributeError: 'Usuarios' object has no attribute 'usuario_id'
+
+2024-11-28 00:11:19 | ERROR | 'Usuarios' object has no attribute 'usuario_id'
+2024-11-28 00:11:19 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 76, in modificar_usuario
+    user.usuario_id,
+    ^^^^^^^^^^^^^^^
+AttributeError: 'Usuarios' object has no attribute 'usuario_id'
+
+2024-11-28 00:30:32 | ERROR | 'Usuarios' object has no attribute 'id'
+2024-11-28 00:30:32 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UsuariosRoutes.py", line 112, in modificar_usuario
+    print("Usuario a modificar:", _user.to_json())
+                                  ^^^^^^^^^^^^^^^
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/models/UsuariosModel.py", line 12, in to_json
+    'usuario_id':self.id,
+                 ^^^^^^^
+AttributeError: 'Usuarios' object has no attribute 'id'
+
+2024-11-28 02:06:22 | ERROR | type object 'UsuariosService' has no attribute 'consultar_usuario_por_id'
+2024-11-28 02:06:22 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UsuariosRoutes.py", line 59, in consultar_usuario
+    usuario = UsuariosService.consultar_usuario_por_id(usuario_id)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'UsuariosService' has no attribute 'consultar_usuario_por_id'
+
+2024-11-28 02:44:18 | ERROR | type object 'UsuariosService' has no attribute 'consultar_usuario_por_id'
+2024-11-28 02:44:18 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/routes/UsuariosRoutes.py", line 59, in consultar_usuario
+    usuario = UsuariosService.consultar_usuario_por_id(usuario_id)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: type object 'UsuariosService' has no attribute 'consultar_usuario_por_id'
+
+2024-11-28 02:54:27 | ERROR | El procedimiento no insertó el usuario.
+2024-11-28 02:54:27 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 93, in agregar_usuario
+    raise Exception("El procedimiento no insertó el usuario.")
+Exception: El procedimiento no insertó el usuario.
+
+2024-11-28 02:59:09 | ERROR | El procedimiento no insertó el usuario.
+2024-11-28 02:59:09 | ERROR | Traceback (most recent call last):
+  File "/home/angel/Documentos/repositorios/api_flask_ecommerce/src/services/UsuariosService.py", line 93, in agregar_usuario
+    raise Exception("El procedimiento no insertó el usuario.")
+Exception: El procedimiento no insertó el usuario.
+

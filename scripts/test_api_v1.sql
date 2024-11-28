@@ -165,6 +165,28 @@ END //
 
 DELIMITER ;
 
+-- CONSULTAR UN USUARIO POR ID
+DELIMITER $$
+
+CREATE PROCEDURE consultar_usuario_por_id(
+    IN pUsuarioId INT
+)
+BEGIN
+    SELECT 
+        usuario_id,
+        nombre,
+        correo,
+        AES_DECRYPT(contrasena, SHA2('B!1w8*NAt1T^%kvhUI*S^_', 512)) AS contrasena,
+        rol,
+        fecha_registro
+    FROM 
+        usuarios
+    WHERE 
+        usuario_id = pUsuarioId;
+END$$
+
+DELIMITER ;
+
 
 -- ELIMINAR USUARIO POR ID
 DELIMITER //

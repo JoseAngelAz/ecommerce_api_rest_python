@@ -5,4 +5,8 @@ configuration = config['development']
 app = init_app(configuration)
 
 if __name__ == "__main__":
-    app.run()
+    ssl_context = (configuration.SSL_CERT,
+                    configuration.SSL_KEY)
+    port = (configuration.PORT)
+    host = (configuration.HOST)
+    app.run(ssl_context=ssl_context, host=host, port=port)

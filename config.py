@@ -5,7 +5,11 @@ class Config():
 
 class DevelopmentConfig(Config):
     DEBUG = True
-
+    SSL_CERT = config('SSL_CERT', default='certs/cert.pem')
+    SSL_KEY = config('SSL_KEY', default='certs/key.pem')
+    PORT = config('PORT')
+    HOST = config('HOST')
 config = {
-        'development': DevelopmentConfig
+        'development': DevelopmentConfig,
+        
 }
