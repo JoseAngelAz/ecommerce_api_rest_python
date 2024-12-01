@@ -1,30 +1,25 @@
+from sqlalchemy import create_engine
+from sqlalchemy.pool import QueuePool
+from decouple import config
 
-from DBUtils.PooledDB import PooledDB
-import pymysql
-
-# Configuración del pool de conexiones
-pool = PooledDB(
-    creator=pymysql,  # Módulo de la base de datos a usar
-    maxconnections=10,  # Número máximo de conexiones abiertas
-    mincached=2,  # Número mínimo de conexiones a mantener abiertas en el pool
-    maxcached=5,  # Número máximo de conexiones a mantener en cache
-    blocking=True,  # Si True, espera si no hay conexiones disponibles
-    host='localhost',  # Dirección del servidor MySQL
-    user='tu_usuario',  # Usuario de la base de datos
-    password='tu_contraseña',  # Contraseña del usuario
-    database='tu_base_de_datos',  # Nombre de la base de datos
-    charset='utf8mb4'  # Codificación de caracteres
+# Crear el motor de SQLAlchemy con un pool de conexiones
+engine = create_engine(
+    f"mysql+pymysql://{config('MYSQL_USER')}:{config('MYSQL_PASSWORD')}@{config('MYSQL_HOST')}/{config('MYSQL_DB')}",
+    poolclass=QueuePool,  # Clase para manejar el pool
+    pool_size=10,         # Número máximo de conexiones
+    max_overflow=5,       # Conexiones adicionales permitidas sobre el límite
+    pool_timeout=30,      # Tiempo máximo de espera para obtener una conexión
+    pool_recycle=280,     # Tiempo máximo de vida de una conexión (en segundos)
+    echo=False            # Cambiar a True para habilitar logs SQL en consola
 )
 
-# Obtener una conexión del pool
-connection = pool.connection()
-
-try:
-    with connection.cursor() as cursor:
-        # Ejecutar una consulta de ejemplo
-        cursor.execute("SELECT VERSION()")
-        result = cursor.fetchone()
-        print("Versión de MySQL:", result[0])
-finally:
-    # Liberar la conexión de vuelta al pool
-    connection.close()
+def get_pool_alchemy():
+    """
+    Obtiene una conexión desde el pool configurado.
+    """
+    try:
+        connection = engine.connect()  # Obtiene una conexión del pool
+        return connection
+    except Exception as e:
+        print("Error al obtener la conexión:", e)
+        raise

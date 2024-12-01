@@ -2,6 +2,8 @@
 import traceback
 from datetime import datetime
 #databases
+from src.database.mysql_db_pool import pool_util_connection
+from src.database.ejemploPoolConexion import get_pool_alchemy
 from src.database.db_mysql import get_connection
 #Logger
 from src.utils.Logger import Logger
@@ -12,6 +14,7 @@ class AuthService():
 
     @classmethod
     def login_user(cls,user):
+        connection = None
         try:
             connection = get_connection()
             authenticated_user = None
@@ -21,9 +24,10 @@ class AuthService():
                 if row != None:
                     fecha_registro = row[5].strftime('%Y-%m-%d %H:%M:%S') if isinstance(row[5], datetime) else None
                     authenticated_user = Usuarios(int(row[0]), row[1], row[2], None,row[4],fecha_registro)
-                    print("El usuario autenticado: ",dir(authenticated_user))
             connection.close()
             return authenticated_user
+            
         except Exception as e:
             Logger.add_to_log("error", str(e))
             Logger.add_to_log("error", traceback.format_exc())
+        

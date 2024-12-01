@@ -8,7 +8,11 @@ from src.utils.Logger import Logger
 from src.utils.Security import Security
 # Servicios
 from src.services.UsuariosService import UsuariosService
+#schemas
+from src.schemas import  user_schemas
 
+from marshmallow import ValidationError
+#blueprint
 main = Blueprint('usuarios_blueprint', __name__)
 
 @main.route('/')
@@ -29,7 +33,7 @@ def conseguir_usuarios():
         Logger.add_to_log("error", traceback.format_exc())
         return jsonify({'message': "ERROR", 'success': False}), 500
 
-#AGREGAR USUARIO POR ID
+#CONSULTAR USUARIO POR ID (FUNCIONA)
 @main.route('/consultar_usuario_id', methods=['POST'])
 def consultar_usuario():
     """
@@ -46,17 +50,25 @@ def consultar_usuario():
         if not request.json:
             return jsonify({'message': 'Petición inválida: falta cuerpo JSON', 'success': False}), 400
 
-        datos_usuario = request.json
-        print("datos recibidos en el request: ", datos_usuario)
+        #datos_usuario = request.json
+        #print("datos recibidos en el request: ", datos_usuario)
 
         # Validar que el campo usuario_id esté presente
-        if 'usuario_id' not in datos_usuario:
-            return jsonify({'message': 'Falta el campo usuario_id', 'success': False}), 400
+        #if 'usuario_id' not in datos_usuario:
+         #   return jsonify({'message': 'Falta el campo usuario_id', 'success': False}), 400
+
+        # Validar datos de entrada con marshmellow
+        schema = user_schemas.ConsultarUsuarioSchema()
+        try:
+            datos_usuario = schema.load(request.json)
+        except ValidationError as err:
+            return jsonify({'message': 'Error de validación', 'errors': err.messages, 'success': False}), 400
+
 
         usuario_id = datos_usuario['usuario_id']
 
         # Llamar al servicio para consultar el usuario
-        usuario = UsuariosService. consultar_usuario_por_id(usuario_id)
+        usuario = UsuariosService.consultar_usuario_por_id(usuario_id)
 
         if usuario:
             return jsonify({'message': 'EXITO', 'success': True, 'usuario': usuario}), 200
@@ -81,6 +93,8 @@ def agregar_usuario():
     if not has_access:
         return jsonify({'message': 'NO AUTORIZADO', 'success': False}), 401
 
+    #aqui el schema1 de validacion
+
     try:
         # Validar si el cuerpo de la solicitud es válido
         if not request.json:
@@ -88,7 +102,14 @@ def agregar_usuario():
 
         datos_usuario = request.json
         print("datos recibidos en el request: ", datos_usuario)
-
+        #*
+         # Validar datos de entrada con Marshmellow
+        schema = user_schemas.AgregarUsuarioSchema()
+        try:
+            datos_usuario = schema.load(request.json)
+        except ValidationError as err:
+            return jsonify({'message': 'Error de validación', 'errors': err.messages, 'success': False}), 400
+        #*
         # Validar los campos requeridos
         campos_requeridos = ['nombre', 'correo', 'contrasena', 'rol']
         for campo in campos_requeridos:

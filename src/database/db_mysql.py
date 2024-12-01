@@ -1,7 +1,8 @@
 from decouple import config
+#from dbutils.pooled_db import PooledDB
 import pymysql
 
-confirmacion = config('MYSQL_DB')
+
 #metodo que retorna una tupla con los datos para la db
 def get_connection():
     try:

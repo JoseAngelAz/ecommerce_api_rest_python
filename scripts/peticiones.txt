@@ -1,3 +1,24 @@
+token de 7 dias = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzI5MTAyNzAsImV4cCI6MTczMzUxNTA3MCwiY29ycmVvIjoibWFyaWEubHVuYUBleGFtcGxlLmNvbSIsIm5vbWJyZSI6Ik1hcmlhIEx1bmEiLCJyb2wiOiJBZG1pbiJ9.vdap8ASikutl0URzjufmY412mbgUqCXKDwFuyTLmZAQ
+
+cryptography
+
+pip install cryptography --proxy http://192.168.49.1:8000
+
+
+AGREGAR USUARIO
+
+curl -w %{certs} -X POST https://localhost:5001/usuarios/agregar_usuario \ > /cert.pem
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzI3NzQyMDMsImV4cCI6MTczMjg2MDYwMywiY29ycmVvIjoibWFyaWEubHVuYUBleGFtcGxlLmNvbSIsIm5vbWJyZSI6Ik1hcmlhIEx1bmEiLCJyb2wiOiJBZG1pbiJ9.A4tcwYSNMwkqWQWPlkVMVOurAVdXdPy2eEXu8QRYGKc" \
+-d '{
+  "nombre": "fat",
+  "correo": "fat@email.com",
+  "contrasena": "fat",
+  "rol": 2
+}'
+
+MODIFICAR USUARIO
+
 curl -X PUT https://localhost:5001/usuarios/modificar_usuario \
 -H "Content-Type: application/json" \
 -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzI3NzQyMDMsImV4cCI6MTczMjg2MDYwMywiY29ycmVvIjoibWFyaWEubHVuYUBleGFtcGxlLmNvbSIsIm5vbWJyZSI6Ik1hcmlhIEx1bmEiLCJyb2wiOiJBZG1pbiJ9.A4tcwYSNMwkqWQWPlkVMVOurAVdXdPy2eEXu8QRYGKc" \
@@ -7,4 +28,33 @@ curl -X PUT https://localhost:5001/usuarios/modificar_usuario \
   "correo": "fat@email.com",
   "contrasena": "fat",
   "rol": 2
+}
+
+CONSULTAR USUARIOS
+
+curl -w %{certs} -X GET https://localhost:5001/usuarios \ > certs/cert.pem
+-H "Content-Type: application/json" \
+-H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE3MzI3NzQyMDMsImV4cCI6MTczMjg2MDYwMywiY29ycmVvIjoibWFyaWEubHVuYUBleGFtcGxlLmNvbSIsIm5vbWJyZSI6Ik1hcmlhIEx1bmEiLCJyb2wiOiJBZG1pbiJ9.A4tcwYSNMwkqWQWPlkVMVOurAVdXdPy2eEXu8QRYGKc" \
+
+CONSEGUIR TOKEN
+
+curl -X POST https://localhost:5001/usuarios/auth \
+-H "Content-Type: application/json" \
+--cert /certs/cert.pem \
+--key certs/key.pem \
+-d '{
+  "correo": "pimpi@email.com",
+  "contrasena": "pimpi"
+}'
+
+CERTIFICADO AUTO FIRMADO PARA TOKEN
+
+curl -X POST https://localhost:5001/auth \
+-H "Content-Type: application/json" \
+--cert /cert.pem \
+--key /key.pem \
+--insecure \
+-d '{
+  "correo": "pimpi@email.com",
+  "contrasena": "pimpi"
 }'

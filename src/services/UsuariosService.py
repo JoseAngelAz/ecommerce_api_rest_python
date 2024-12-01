@@ -1,5 +1,6 @@
 from datetime import datetime
 import traceback
+import re
 
 # Database
 from src.database.db_mysql import get_connection
@@ -24,7 +25,11 @@ class UsuariosService:
                 resultset = cursor.fetchall()
                 for row in resultset:
                     fecha_registro = row[5].strftime('%Y-%m-%d %H:%M:%S') if isinstance(row[5], datetime) else None
-                    usuario = Usuarios(int(row[0]), row[1], row[2], str(row[3]), row[4], fecha_registro)
+                    contrasena = str(row[3])
+                    resultado = re.sub(r"(\\x|\\)", "", contrasena)
+                    contrasena = re.sub(r"b'|'$", "", resultado)  # Quitar el prefijo b' y la comilla final
+
+                    usuario = Usuarios(int(row[0]), row[1], row[2], contrasena, row[4], fecha_registro)
                     usuarios.append(usuario.to_json())
             return usuarios
         except Exception as e:

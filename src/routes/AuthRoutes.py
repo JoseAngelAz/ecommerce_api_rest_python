@@ -18,12 +18,10 @@ def login():
         correo = request.json['correo']
         contrasena = request.json['contrasena']
         _user = Usuarios(0,None, correo, contrasena,None,None)
-        print("auth routes: ",_user)
 
         authenticated_user = AuthService.login_user(_user)
         if authenticated_user != None:
             encoded_token = Security.generate_token(authenticated_user)
-            print(encoded_token)
             return jsonify({'success':True, 'token':encoded_token})
         else:
             response = jsonify({'message':'NO AUTORIZADO'})
