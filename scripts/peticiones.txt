@@ -4,6 +4,10 @@ cryptography
 
 pip install cryptography --proxy http://192.168.49.1:8000
 
+para git
+git config --global http.proxy http://192.168.49.1:8000
+git config --global https.proxy http://192.168.49.1:8000
+
 
 AGREGAR USUARIO
 
