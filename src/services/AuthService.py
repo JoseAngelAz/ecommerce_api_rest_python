@@ -2,8 +2,8 @@
 import traceback
 from datetime import datetime
 #databases
-from src.database.mysql_db_pool import pool_util_connection
-from src.database.ejemploPoolConexion import get_pool_alchemy
+#from src.database.mysql_db_pool import pool_util_connection
+#from src.database.ejemploPoolConexion import get_pool_alchemy
 from src.database.db_mysql import get_connection
 #Logger
 from src.utils.Logger import Logger

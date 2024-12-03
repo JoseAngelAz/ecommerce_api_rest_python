@@ -400,6 +400,54 @@ END //
 DELIMITER ;
 
 
+-- AGREGAR INDICES ADICIONALES PARA MEJORAR EL RENDIMIENTO
+
+
+-- Índices adicionales para mejorar el rendimiento
+ALTER TABLE usuarios ADD INDEX (correo);
+ALTER TABLE productos ADD INDEX (categoria_id);
+ALTER TABLE pedidos ADD INDEX (usuario_id);
+ALTER TABLE detalles_pedido ADD INDEX (pedido_id, producto_id);
+
+
+-- CONSULTAR TABLAS POR ID
+
+DELIMITER $$
+
+-- Consultar una categoría por ID
+CREATE PROCEDURE consultar_categoria_por_id(IN pCategoriaId INT)
+BEGIN
+    SELECT categoria_id, nombre, descripcion, fecha_creacion
+    FROM categorias
+    WHERE categoria_id = pCategoriaId;
+END$$
+
+-- Consultar un producto por ID
+CREATE PROCEDURE consultar_producto_por_id(IN pProductoId INT)
+BEGIN
+    SELECT producto_id, nombre, descripcion, precio, stock, categoria_id, fecha_creacion
+    FROM productos
+    WHERE producto_id = pProductoId;
+END$$
+
+-- Consultar un pedido por ID
+CREATE PROCEDURE consultar_pedido_por_id(IN pPedidoId INT)
+BEGIN
+    SELECT pedido_id, usuario_id, fecha_pedido, estado, total
+    FROM pedidos
+    WHERE pedido_id = pPedidoId;
+END$$
+
+-- Consultar los detalles de un pedido específico
+CREATE PROCEDURE consultar_detalles_de_pedido(IN pPedidoId INT)
+BEGIN
+    SELECT detalle_id, pedido_id, producto_id, cantidad, precio_unitario, fecha_creacion
+    FROM detalles_pedido
+    WHERE pedido_id = pPedidoId;
+END$$
+
+DELIMITER ;
+
 -- EJECUCION DE LOS PROCEDIMIENTOS ALMACENADOS
 
 /*

@@ -1,5 +1,5 @@
 import traceback
-import datetime
+from datetime import datetime
 
 #importar la conexion de la config de la base de datos
 from src.database.db_mysql import get_connection
@@ -20,8 +20,9 @@ class PedidosService():
                 resulset = cursor.fetchall()
                 for row in resulset:
                     pedido = Pedidos(int(row[0]),int(row[1]),datetime.datetime(row[2]),row[3],float(row[4]))
+                    print(pedido)
                     pedidos.append(pedido.Pedido_Model_to_json())
-            connection.close()
+            connection.close() 
             return pedidos
         except Exception as e:
             Logger.add_to_log("error",str(e))
